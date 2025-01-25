@@ -136,7 +136,7 @@ const loginUser = asyncHandler(async (req, res) =>{
    const {accessToken, refreshToken} = await generateAccessAndRefereshTokens(user._id)
 
     const loggedInUser = await User.findById(user._id).select("-password -refreshToken")
-
+    
     const options = {
         httpOnly: true,
         secure: true
@@ -410,7 +410,6 @@ const getUserChannelProfile = asyncHandler(async(req, res) => {
                 avatar: 1,
                 coverImage: 1,
                 email: 1
-
             }
         }
     ])
